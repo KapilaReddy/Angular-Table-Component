@@ -1,0 +1,72 @@
+<table>
+  <thead #head>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Company</th>
+      <th>Date_Entry</th>
+      <th>Org_Num</th>
+      <th>Address_1</th>
+      <th>City</th>
+      <th>Zip</th>
+      <th>Geo</th>
+      <th>Pan</th>
+      <th>Pin</th>
+      <th>ID</th>
+      <th>Status</th>
+      <th>Fee</th>
+      <th>GuID</th>
+      <th>Date_Exit</th>
+      <th>Date_First</th>
+      <th>Date_Recent</th>
+      <th>URL</th>
+    </tr>
+  </thead>
+  <tbody (scroll)="onScroll($event)">
+    <tr align="center" *ngFor="let row of tableData | slice: (currPage * limitValue) : ((currPage + 1) * limitValue)">
+      <td>{{row.name}}</td>
+      <td>{{row.phone}}</td>
+      <td>{{row.email}}</td>
+      <td>{{row.company}}</td>
+      <td>{{row.date_entry}}</td>
+      <td>{{row.org_num}}</td>
+      <td>{{row.address_1}}</td>
+      <td>{{row.city}}</td>
+      <td>{{row.zip}}</td>
+      <td>{{row.geo}}</td>
+      <td>{{row.pan}}</td>
+      <td>{{row.pin}}</td>
+      <td>{{row.id}}</td>
+      <td>{{row.status}}</td>
+      <td>{{row.fee}}</td>
+      <td>{{row.guid}}</td>
+      <td>{{row.date_exit}}</td>
+      <td>{{row.date_first}}</td>
+      <td>{{row.date_recent}}</td>
+      <td>{{row.url}}</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>
+        <form class="flex" #limitForm="ngForm">
+          <div>
+            <label>Limit: </label>
+            <select name="limit" [(ngModel)]="limitValue" (change)="changeLimit(limitValue)">
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+            </select>
+          </div>
+
+          <div class="pagination">
+            <button *ngFor="let btn of paginatinon;let i = index;" (click)="getPaginatedData(i)">
+              {{i}}
+            </button>
+          </div>
+        </form>
+      </td>
+    </tr>
+  </tfoot>
+</table>

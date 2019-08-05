@@ -1,0 +1,47 @@
+table {
+  display: block;
+  overflow: hidden;
+
+  thead, tbody, tfoot {
+    display: block;
+  }
+
+  tbody {
+    max-height: 80vh;
+    overflow: auto;
+  }
+
+  thead {
+    padding: 10px 0px;
+    width: calc(100% - 20px);
+    overflow: hidden;
+  }
+
+  tr {
+    width: 2000px;
+    display: flex;
+
+    th, td {
+      display: inline-flex;
+      flex-basis: 20%;
+      word-break: break-word;
+      justify-content: center;
+    }
+  }
+
+  tfoot td {
+    flex-basis: 100%;
+    justify-content: left;
+    padding: 12px;
+
+    select {
+      width: 150px;
+    }
+  }
+
+  .flex {
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+  }
+}
